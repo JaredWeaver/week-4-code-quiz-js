@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Code Quiz</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="fixed-logo">
+            <h1> Code Quiz </h1>   
+        </div>
+        <div>
+            <h3><a id="highScoresLink" href="highscores.html" target="#">High Scores</a></h3>
+        </div>
+        <div class="fixed-time">
+            <div class = "timeLeft">Time Remaining:</div>
+        </div>
+    </div>            
+    <div id="wrapper">
+        <div id="startContent">
+            <h1>Code Quiz</h1>
+            <br><br>
+            <p> Try and answer the following 5 javascript questions before time runs out. <br> Correct answers will increase your score by 20 and time by 10 seconds. <br> Incorrect answers will decrease your time left by 10 seconds.</p>
+            <br><br>
+            <button id="beginQuiz"> Start! </button>  
+        </div>
+        <div id="questionsContent" class="questionsContent">
+            <h3 id ="displayedQuestion"></h3>
+            <br><br>
+            <ul id="buttonChoices">
+                <li><button id="button1"></button></li>
+                <br>
+                <li><button id="button2"></button></li>
+                <br>
+                <li><button id="button3"></button></li>
+                <br>
+                <li><button id="button4"></button></li>
+            </ul>
+            
+        </div>
+    </div>
+    <script src="assets/script.js"></script>
+</body>
+</html>
