@@ -65,6 +65,7 @@ button {
     font-size: 16px;
     font-family: 'JetBrains Mono', monospace; 
     width: auto;
+    margin: 4px;
 }
 
 button:hover {
