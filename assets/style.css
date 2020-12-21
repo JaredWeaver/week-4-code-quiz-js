@@ -20,6 +20,10 @@ body {
     padding: 6px;
 }
 
+.time-remaining {
+    display: none;
+}
+
 .fixed-logo {
     float: left;
 }
@@ -33,6 +37,18 @@ body {
 }
 
 #highScoresLink:hover{
+    color: grey;
+}
+
+#returnToStart {
+    float: left;
+    color: white;
+    padding-top: 10px;
+    padding-left: 10px;
+    text-decoration: none;
+}
+
+#returnToStart:hover{
     color: grey;
 }
 
@@ -81,5 +97,35 @@ ul {
 }
 
 .questionsContent {
+    display: none;
+}
+
+
+
+.nextQuestion {
+    display: none;
+}
+
+.correctIncorrect {
+    display: none;
+}
+
+form {
+    font-size: 30px;
+}
+
+input[type=text] {
+    width: 33.3%;
+    height: auto;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-family: 'JetBrains Mono', monospace;
+    background-color: #800000;
+    color: white;
+    font-size: 22px;
+}
+
+.finalScore {
     display: none;
 }

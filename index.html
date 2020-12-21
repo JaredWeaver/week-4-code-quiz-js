@@ -34,10 +34,26 @@
             <h3 id ="displayedQuestion"></h3>
             <br><br>
             <ul id="buttonChoices">
-                
+                <li><button id="button1" class="answerButtons"></button></li>
+                <li><button id="button2" class="answerButtons"></button></li>
+                <li><button id="button3" class="answerButtons"></button></li>
+                <li><button id="button4" class="answerButtons"></button></li>
             </ul>
         </div>
         <div id = "questionGrade">
+            <p id="correctIncorrect"></p>
+        </div>
+        <div id ="finalScore" class="finalScore">
+            <h1 id="userFinalScore"></h1>
+            <hr>
+            <h2>Submit your Score to the High Scores Page</h2> 
+            <form id="highScoreForm" method="POST">
+                <label for="highScore"></label>
+                <input type="text" placeholder="Enter your Initials Here" name="highScore" id="highScore" />
+                <br>
+                <button id="submitHighScore">Submit</button>
+            </form>
+
         </div>
     </div>
     <script src="assets/script.js"></script>
