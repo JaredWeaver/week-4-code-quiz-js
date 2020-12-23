@@ -1,7 +1,7 @@
 var timeRemaining = document.querySelector(".timeRemaining");
 var buttonChoices = document.querySelector("#buttonChoices");
 var choices = document.querySelectorAll(".answerButtons");
-var startBtn = document.querySelector("#beginQuiz");
+var beginQuiz = document.getElementById("beginQuiz");
 var startContent = document.querySelector("#startContent");
 var questionsContent = document.querySelector("#questionsContent");
 var displayedQuestion = document.querySelector("#displayedQuestion");
@@ -12,8 +12,10 @@ var button4 = document.querySelector("#button4");
 var questionGrade = document.querySelector("#questionGrade");
 var correctIncorrect = document.querySelector("#correctIncorrect");
 var finalScore = document.querySelector("#finalScore");
-var submitHighScore = document.querySelector("submitHighScore");
-var highScoreForm = document.querySelector("#highScoreForm");
+var submitHighScore = document.querySelector("#submitBtn");
+var initialsInput = document.querySelector("#initials");
+var olEl = document.querySelector("#olEl");
+var remove = document.querySelector("#remove");
 
 
 
@@ -70,7 +72,6 @@ var questions = [
 
 
 var lastQuestion = questions.length - 1;
-var userScore = 0;
 var timeLeft = 15 * questions.length - 1;
 var timeInterval;
 
@@ -81,7 +82,7 @@ var currentButtonChoice2;
 var currentButtonChoice3;
 var currentButtonChoice4;
 var currentAnswer;
-var questionGrade;
+
 
 
 
@@ -142,7 +143,6 @@ var incorrectN = "Incorrect!";
 function correctChoice () {
     correctIncorrect = document.getElementById("correctIncorrect");
     correctIncorrect.textContent = correctN;
-    userScore += 10;
     
 }
 
@@ -152,30 +152,49 @@ function incorrectChoice () {
     timeLeft -= 10;
 }
 
-function displayFinal () {
+function displayFinal() {
     clearInterval(timeInterval);
     var h1 = document.createElement("h1");
-    h1.textContent = "Your score is " + userScore + " !";
+    h1.textContent = "Your score is " + timeLeft + " !";
     finalScore.prepend(h1);
     timeRemaining.style.display = ("none");
     questionsContent.classList.add("questionsContent"); 
     correctIncorrect.classList.add("correctIncorrect");
     timeRemaining.classList.add("timeRemaining");
     finalScore.classList.remove("finalScore");
+
+    submitBtn.addEventListener("submit", function(event){
+        saveHighscore(); 
+
+    });
 }
 
-startBtn.addEventListener("click", function(event) {
+function saveHighscore() {
+    var scores = JSON.parse(localStorage.getItem('nameScore')) || [];
+
+    if (initialsInput.value !== "")  {
+        
+        var nameScore = {
+            name: initialsInput.value,
+            score: timeLeft
+        };
+        scores.push(nameScore);
+        localStorage.setItem("nameScore", JSON.stringify(scores));
+
+     }
+}
+
+beginQuiz.addEventListener("click", function(event) {
     event.preventDefault();
     startContent.style.display = "none";
-    if (event.target === startBtn) {
     questionsContent.classList.remove("questionsContent");
     correctIncorrect.classList.remove("correctIncorrect");
     timeRemaining.classList.remove("timeRemaining");
 
     showQuestion(0);
     countdown();
-    }
 });
+
 
 choices.forEach(function(choice, i) {
     choice.addEventListener("click", function(event) {
@@ -192,17 +211,11 @@ choices.forEach(function(choice, i) {
             event.target === button2 && currentQuestionIndex === lastQuestion ||
             event.target === button3 && currentQuestionIndex === lastQuestion ||
             event.target === button4 && currentQuestionIndex === lastQuestion ||
-            currentQuestionIndex >= lastQuestion) {
-            // questionsContent.classList.add("questionsContent"); 
-            // correctIncorrect.classList.add("correctIncorrect");
-            // timeRemaining.classList.add("timeRemaining");
-
-            // finalScore.classList.remove("finalScore");
+            currentQuestionIndex === lastQuestion) {
             displayFinal();
-    
+            return;
         }
         showQuestion(currentQuestionIndex + 1); 
-        console.log(timeLeft);
     });
     
 });

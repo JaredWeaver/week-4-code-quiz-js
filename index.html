@@ -22,7 +22,7 @@
             <div class ="timeRemaining"></div>
         </div>
     </div>            
-    <div id="wrapper">
+    <div class="wrapper">
         <div id="startContent">
             <h1>Code Quiz</h1>
             <br><br>
@@ -47,13 +47,11 @@
             <h1 id="userFinalScore"></h1>
             <hr>
             <h2>Submit your Score to the High Scores Page</h2> 
-            <form id="highScoreForm" method="POST">
-                <label for="highScore"></label>
-                <input type="text" placeholder="Enter your Initials Here" name="highScore" id="highScore" />
+                <p> Enter Intials:
+                <input type="text" placeholder="Enter your Initials Here" name="highScore" id="initials" max="3"/>
                 <br>
-                <button id="submitHighScore">Submit</button>
-            </form>
-
+                <a href ="highscores.html"><button id="submitBtn">Submit</button></a>
+                </p>
         </div>
     </div>
     <script src="assets/script.js"></script>
