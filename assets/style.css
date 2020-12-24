@@ -8,6 +8,9 @@ body {
     font-family: 'JetBrains Mono', monospace;
 }
 
+h1 {
+    font-weight: bold;
+}
 .container {
     position: fixed;
     float: top;
@@ -64,6 +67,7 @@ body {
     float: center;
     padding: 200px;
     text-align: center;
+    margin-bottom: 0;
 }
 
 p {
@@ -92,9 +96,12 @@ button:hover {
     font-size: 28px
 }
 
-ul {
-    list-style-type: none;
+
+li {
+    list-style: none;
+
 }
+
 
 .questionsContent {
     display: none;
@@ -129,3 +136,16 @@ input[type=text] {
 .finalScore {
     display: none;
 }
+
+.feedback {
+    font-style: italic;
+    font-size: 120%;
+    margin-top: 20px;
+    padding-top: 10px;
+    color: black;
+    border-top: 2px solid #ccc;
+  }
+
+.hide {
+    display: none;
+  }

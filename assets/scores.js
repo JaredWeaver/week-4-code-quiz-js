@@ -1,5 +1,5 @@
 
-var highscores = JSON.parse(window.localStorage.getItem("nameScores")) || [];
+var highscores = JSON.parse(window.localStorage.getItem("nameScore")) || [];
 
 
 highscores.sort(function(a, b) {
@@ -16,7 +16,7 @@ highscores.forEach(function(nameScore) {
 });
 
 remove.addEventListener("click", function() {
-  window.localStorage.removeItem("highscores");
+  window.localStorage.removeItem("nameScore");
   window.location.reload();
 });
 

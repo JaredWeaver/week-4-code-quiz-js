@@ -13,7 +13,7 @@
 <body>
     <div class="container">
         <div class="fixed-logo">
-            <h1> Code Quiz </h1>   
+            <h1>Code Quiz</h1>   
         </div>
         <div>
             <h3><a id="highScoresLink" href="highscores.html" target="#">High Scores</a></h3>
@@ -26,7 +26,7 @@
         <div id="startContent">
             <h1>Code Quiz</h1>
             <br><br>
-            <p> Try and answer the following 5 javascript questions before time runs out. <br> Correct answers will increase your score by 20 and time by 10 seconds. <br> Incorrect answers will decrease your time left by 10 seconds.</p>
+            <p> Answer the following 5 javascript questions before time runs out. <br> Your score is determined by how much time is left when you finish the last question. <br> Incorrect answers will decrease your time left by 10 seconds.</p>
             <br><br>
             <button id="beginQuiz"> Start! </button>  
         </div>
@@ -48,7 +48,7 @@
             <hr>
             <h2>Submit your Score to the High Scores Page</h2> 
                 <p> Enter Intials:
-                <input type="text" placeholder="Enter your Initials Here" name="highScore" id="initials" max="3"/>
+                <input type="text" placeholder="Enter your Initials Here" name="highScore" id="initials" maxlength="3"/>
                 <br>
                 <a href ="highscores.html"><button id="submitBtn">Submit</button></a>
                 </p>

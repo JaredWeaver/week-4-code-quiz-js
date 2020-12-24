@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie-edge" />
     <title>Code Quiz</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/style.css">
-
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
     <div class="container">
-        <div class="fixed-logo">
-            <h1> Code Quiz </h1>   
-        </div>
-        <div>
-            <h3><a id="returnToStart"href="index.html" target="#">Return to Start</a></h3>     
-        </div>
-    </div>            
+      <div class="fixed-logo">
+        <h1>Code Quiz</h1>
+      </div>
+      <div>
+        <h3>
+          <a id="returnToStart" href="index.html" target="#">Return to Start</a>
+        </h3>
+      </div>
+    </div>
     <div class="wrapper">
-        <h1> <u>Highscores</u></h1>
+        <div id= "scoreList">
+            <h1><u>Highscores</u></h1>
             <ol id="olEl"></ol>
-            
-            <button id ="remove">Clear</button>
-          
+        </div>
+      <button id="remove">Clear</button>
     </div>
     <script src="assets/scores.js"></script>
-
-</body>
+  </body>
 </html>
 
 s

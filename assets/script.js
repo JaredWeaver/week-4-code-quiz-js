@@ -24,47 +24,47 @@ var questions = [
 
     {
 
-        question : "Question 1?",
-        option1 : "1: Incorrect Answer",
-        option2 : "2: Incorrect Answer",
-        option3 : "3: Correct Answer",
-        option4 : "4: Incorrect Answer",
+        question : "Commonly used data types DO NOT include:",
+        option1 : "1: Strings",
+        option2 : "2: Booleans",
+        option3 : "3: Alerts",
+        option4 : "4: Numbers",
         correct : "3"
 
     },{
 
-        question : "Question 2?",
-        option1 : "1: Incorrect Answer",
-        option2 : "2: Correct Answer",
-        option3 : "3: Incorrect Answer",
-        option4 : "4: Incorrect Answer",
+        question :  "The condition in an if / else statement is enclosed within ____.",
+        option1 : "1: Quotes",
+        option2 : "2: Parentheses",
+        option3 : "3: Curly brackets",
+        option4 : "4: Square brackets",
         correct : "2"
 
     },{
 
-        question : "Question 3?",
-        option1 : "1: Incorrect Answer",
-        option2 : "2: Incorrect Answer",
-        option3 : "3: Correct Answer",
-        option4 : "4: Incorrect Answer",
-        correct : "3"
+        question : "Arrays in JavaScript can be used to store ____.",
+        option1 : "1: Numbers and strings",
+        option2 : "2: Other arrays",
+        option3 : "3: Booleans",
+        option4 : "4: All of the above.",
+        correct : "4"
 
     },{
 
-        question : "Question 4?",
-        option1 : "1: Correct Answer",
-        option2 : "2: Incorrect Answer",
-        option3 : "3: Incorrect Answer",
-        option4 : "4: Incorrect Answer",
+        question : "String values must be enclosed within ____ when being assigned to variables.",
+        option1 : "1: Quotes",
+        option2 : "2: Commas",
+        option3 : "3: Curly brackets",
+        option4 : "4: Parentheses",
         correct : "1"
 
     },{
 
-        question : "Question 5?",
-        option1 : "1: Incorrect Answer",
-        option2 : "2: Incorrect Answer",
-        option3 : "3: Incorrect Answer",
-        option4 : "4: Correct Answer",
+        question :  "A very useful tool used during development and debugging for printing content to the debugger is:",
+        option1 : "1: Javascript",
+        option2 : "2: Terminal / bash",
+        option3 : "3: for loops",
+        option4 : "4: console.log",
         correct : "4"
 
     }
@@ -142,14 +142,22 @@ var incorrectN = "Incorrect!";
 
 function correctChoice () {
     correctIncorrect = document.getElementById("correctIncorrect");
-    correctIncorrect.textContent = correctN;
+    correctIncorrect.setAttribute("class", "feedback");
+setTimeout(function() {
+    correctIncorrect.setAttribute("class", "feedback hide");
+  }, 1000);
+  correctIncorrect.textContent = correctN;
     
 }
 
 function incorrectChoice () {
     correctIncorrect = document.getElementById("correctIncorrect");
-    correctIncorrect.textContent = incorrectN;
     timeLeft -= 10;
+    correctIncorrect.setAttribute("class", "feedback");
+  setTimeout(function() {
+    correctIncorrect.setAttribute("class", "feedback hide");
+  }, 1000);
+  correctIncorrect.textContent = incorrectN;
 }
 
 function displayFinal() {
@@ -159,11 +167,12 @@ function displayFinal() {
     finalScore.prepend(h1);
     timeRemaining.style.display = ("none");
     questionsContent.classList.add("questionsContent"); 
-    correctIncorrect.classList.add("correctIncorrect");
     timeRemaining.classList.add("timeRemaining");
     finalScore.classList.remove("finalScore");
+    correctIncorrect.classList.add("correctIncorrect");
 
-    submitBtn.addEventListener("submit", function(event){
+
+    submitBtn.addEventListener("click", function(event){
         saveHighscore(); 
 
     });
@@ -183,6 +192,14 @@ function saveHighscore() {
 
      }
 }
+
+function checkForEnter(event) {
+    if (event.key === "Enter") {
+      saveHighscore();
+    }
+  }
+
+initialsInput.addEventListener("onkeyup", checkForEnter);
 
 beginQuiz.addEventListener("click", function(event) {
     event.preventDefault();
